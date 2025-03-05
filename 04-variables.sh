@@ -3,7 +3,7 @@
 Person1=$1
 Person2=$2
 
-echo "Usha=Hai Rani, how are you?"
-echo "Rani=Hey Usha, I am doing fine. What about you?"
-echo "Usha=How are your kids?"
-echo "Rani=They are quite busy with their studies."
+echo "$Person1=Hai $Person2, how are you?"
+echo "$Person2=Hey $Person1, I am doing fine. What about you?"
+echo "$Person1=How are your kids?"
+echo "$Person2=They are quite busy with their studies."
