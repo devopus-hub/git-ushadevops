@@ -7,5 +7,5 @@ echo "current working direcoty: $PWD"
 echo "Home directory of current user: $HOME"
 echo "PID of the script executing now: $$"
 
-sleep 10
+sleep 10 &
 echo "PID of last background command:$!"
