@@ -3,8 +3,8 @@ $!/bin/bash
 USERID=$(id -u)
 #echo "user id is: $USERID"
 
-CHECK_ROOT(){                                           
-    if [ $? -ne 0 ]
+CHECK_ROOT(){                                           #it's a function to check root user
+    if [ $USERID -ne 0 ]
     then
         echo "Please run this script with root privilages"
         exit 1
@@ -12,14 +12,33 @@ CHECK_ROOT(){
 }
 
 VALIDATE () {
-    echo "exit status: $1"
+    if [ $1 -ne 0 ]
+    then
+        echo "$2 is ..... Failed"
+    else
+        echo "$2 is ..... Success"
+    fi
 }
 
 CHECK_ROOT
 
 dnf list installed git
 
-VALIDATE $?
+if [ $? -ne 0 ]
+then
+    echo "Git is not installed, going to install now..."
+    dnf install git -y"
+    VALIDATE $? "Installing Git"
+else
+    echo "Git is already installed, nothing to do ...."
+
+# if [ $USERID -ne 0 ]
+# then 
+#     echo "Please run this script with root privilages"
+#     exit 1
+# fi
+
+# dnf list installed git
 
 # if [ $? -ne 0 ]
 # then
