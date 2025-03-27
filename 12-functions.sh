@@ -68,5 +68,6 @@ else
 #     else
 #         echo "Mysql installation is successful"
 #     fi
-# else    echo "Mysql is installed successfully..nothing to do.."
+# else    
+#     echo "Mysql is installed successfully..nothing to do.."
 # fi
