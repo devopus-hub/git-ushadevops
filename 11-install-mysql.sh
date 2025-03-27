@@ -1,4 +1,4 @@
 #!/bin/bash
 
-dnf install mysql -y
-dnf remove mysql -y
+USER ID=$(id -u)
+echo "user id is: $USER ID"
