@@ -20,26 +20,27 @@ VALIDATE () {
     fi
 }
 
+PACKAGE () {
+    dnf list installed $1
+}
+
+PROCESS () {
+    if [ $1 -ne 0 ]
+    then
+        echo "$2 is not installed, going to install now..."
+        dnf install $2 -y
+        VALIDATE $1 "Installing $2"
+    else
+        echo "$2 is already installed, nothing to do ...."
+    fi
+}
+
 CHECK_ROOT
 
-dnf list installed git
+PACKAGE $? "git"
 
-if [ $? -ne 0 ]
-then
-    echo "Git is not installed, going to install now..."
-    dnf install git -y
-    VALIDATE $? "Installing git"
-else
-    echo "Git is already installed, nothing to do ...."
-fi
+PROCESS "git"
 
-dnf list installed mysql
+PACKAGE "mysql"
 
-if [ $? -ne 0 ]
-then
-    echo "MYSQL is not installed...going to install now..."
-    dnf install mysql -y
-    VALIDATE $? "installing MYSQL"
-else
-    echo "MYSQL is already installed...nothing to do..."
-fi
+PROCESS $1 "mysql"
