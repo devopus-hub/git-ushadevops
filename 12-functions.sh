@@ -36,11 +36,7 @@ PROCESS () {
 }
 
 CHECK_ROOT
-
 PACKAGE "git"
-
 PROCESS $? "git"
-
 PACKAGE "mysql"
-
 PROCESS $? "mysql"
