@@ -14,9 +14,9 @@ CHECK_ROOT(){                                           #it's a function to chec
 VALIDATE () {
     if [ $1 -ne 0 ]
     then
-        echo "$2 is ..... Failed"
-    else
         echo "$2 is ..... Success"
+    else
+        echo "$2 is ..... Failed"
     fi
 }
 
